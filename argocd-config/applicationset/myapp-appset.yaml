@@ -19,6 +19,9 @@ spec:
   template:
     metadata:
       name: 'myapp-{{env}}'
+      annotations:
+        notifications.argoproj.io/subscribe.on-sync-failed.demo: ""
+        notifications.argoproj.io/subscribe.on-health-degraded.demo: ""
     spec:
       project: '{{project}}'
       source:
