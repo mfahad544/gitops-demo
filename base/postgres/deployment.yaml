@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: postgres:broken-tag
+          image: postgres:16-alpine
           env:
             - name: POSTGRES_PASSWORD
               value: demopassword
