@@ -1,0 +1,12 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: staging-project
+  namespace: argocd
+spec:
+  description: Staging environment
+  sourceRepos:
+    - https://github.com/mfahad544/gitops-demo.git
+  destinations:
+    - namespace: myapp-staging
+      server: https://kubernetes.default.svc

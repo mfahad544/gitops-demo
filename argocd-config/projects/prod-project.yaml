@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: prod-project
+  namespace: argocd
+spec:
+  description: Production - locked down
+  sourceRepos:
+    - https://github.com/mfahad544/gitops-demo.git
+  destinations:
+    - namespace: myapp-prod
+      server: https://kubernetes.default.svc
+  # Prod-only: block manual deletion/pruning by default
+  syncWindows:
+    - kind: allow
+      schedule: '* * * * *'
+      duration: 24h
+      applications: ['*']
+      manualSync: true
