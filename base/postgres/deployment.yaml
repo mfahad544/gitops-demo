@@ -5,6 +5,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"
 spec:
+  progressDeadlineSeconds: 30
   replicas: 1
   selector:
     matchLabels:
@@ -14,6 +15,7 @@ spec:
       labels:
         app: postgres
     spec:
+  progressDeadlineSeconds: 30
       containers:
         - name: postgres
           image: postgres:broken-tag
